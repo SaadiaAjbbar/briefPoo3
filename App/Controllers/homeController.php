@@ -1,6 +1,10 @@
 <?php
-require_once '../Core/Controller.php';
-require_once '../Core/Database.php';
+
+namespace App\Controllers;
+
+use App\Core\Controller;
+use App\Core\Database;
+
 class homeController extends Controller{
 private $db;
 public function __construct()
