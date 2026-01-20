@@ -1,11 +1,13 @@
 <?php
+
 namespace App\Core;
 
-abstract class Controller{
-
-    public function view($view,$data=[]){
+abstract class Controller
+{
+    public function view(string $view, array $data = []): void
+    {
         extract($data);
-        require_once '../Views/'.$view.'.php';
 
+        require __DIR__ . '/../../Views/' . $view . '.php';
     }
 }

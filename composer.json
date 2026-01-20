@@ -1,0 +1,10 @@
+{
+    "name": "c/briefpoo3",
+    "description": "Projet Débriefing pédagogique MVC PHP",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require": {}
+}
