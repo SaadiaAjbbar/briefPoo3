@@ -15,7 +15,7 @@ class Database
     {
         try {
             $this->connection = new PDO(
-                "pgsql:host=localhost;port=5432;dbname=debriefing",
+                "pgsql:host=localhost;port=5433;dbname=debriefing",
                 "postgres",
                 "wahiba06"
             );

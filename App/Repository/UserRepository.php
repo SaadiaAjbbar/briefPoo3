@@ -15,9 +15,25 @@ class UserRepository
         $this->db = Database::getInstance()->getConnection();
     }
 
-    public function findAll(): array
+    public function findByEmail(string $email): ?User
     {
-        $stmt = $this->db->query("SELECT * FROM users");
-        return $stmt->fetchAll();
+        $sql = 'SELECT * FROM "user" WHERE email = :email LIMIT 1';
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['email' => $email]);
+
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$data) {
+            return null;
+        }
+
+        return new User(
+            $data['id'],
+            $data['prenom'],
+            $data['nom'],
+            $data['email'],
+            $data['password'],
+            $data['role']
+        );
     }
 }
