@@ -6,5 +6,7 @@
             "App\\": "app/"
         }
     },
-    "require": {}
+    "require": {
+        "eftec/bladeone": "^4.19"
+    }
 }

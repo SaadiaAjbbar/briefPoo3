@@ -1,3 +1,6 @@
+@extends('layouts.admin')
+
+@section('content')
 <section class="max-h-screen flex items-center justify-center p-96">
     <div class="max-w-md w-full bg-gray-600 rounded-2xl shadow-sm border border-gray-100 p-8">
 
@@ -32,5 +35,5 @@
 
     </div>
 </section>
-
+@endsection
 

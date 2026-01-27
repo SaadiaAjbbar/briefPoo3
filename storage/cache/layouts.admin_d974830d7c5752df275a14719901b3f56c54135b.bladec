@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Admin</title>
+ <link rel="stylesheet" href="/css/output.css">
+</head>
+<body class="bg-gray-900 text-white">
+
+<?php echo $this->runChild('partials.header'); ?>
+
+<div class="p-6">
+ <?php echo $this->yieldContent('content'); ?>
+</div>
+
+</body>
+</html>

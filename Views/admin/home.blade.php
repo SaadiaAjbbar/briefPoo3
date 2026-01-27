@@ -1,4 +1,6 @@
+@extends('layouts.admin')
 
+@section('content')
 <div class="max-w-7xl mx-auto mt-10 text-white">
 
     <h1 class="text-3xl font-bold mb-6">
@@ -41,7 +43,7 @@
             <p class="text-gray-400 mb-4">
                 Création et organisation des classes
             </p>
-            <a href="/admin/classes/create"
+            <a href="/admin/classes"
                class="inline-block bg-indigo-600 px-4 py-2 rounded hover:bg-indigo-700">
                 Gérer
             </a>
@@ -61,3 +63,4 @@
 
     </div>
 </div>
+@endsection

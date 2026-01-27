@@ -43,7 +43,7 @@
                             Étudiants
                         </a>
 
-                        <a href="/admin/classes/create" class="text-gray-600 hover:text-indigo-600 font-medium">
+                        <a href="/admin/classes" class="text-gray-600 hover:text-indigo-600 font-medium">
                             Classes
                         </a>
 

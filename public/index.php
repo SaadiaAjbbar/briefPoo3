@@ -18,7 +18,11 @@ $router->get('/logout', 'AuthController@logout');
 
 $router->get('/admin/home', 'AdminController@home');
 
+// crud des classes
+$router->get('/admin/classes', 'AdminClasseController@index');
+
 $router->get('/admin/classes/create', 'AdminClasseController@create');
 $router->post('/admin/classes/create', 'AdminClasseController@create');
+$router->post('/admin/classes/delete', 'AdminClasseController@delete');
 
 $router->dispatch();

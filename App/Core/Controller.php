@@ -2,12 +2,17 @@
 
 namespace App\Core;
 
+use eftec\bladeone\BladeOne;
+
 abstract class Controller
 {
-    public function view(string $view, array $data = []): void
+    protected BladeOne $view;
+
+    public function __construct()
     {
-        extract($data);
-        require __DIR__ . '/../../views/partials/header.php';
-        require __DIR__ . '/../../Views/' . $view . '.php';
+        $views = __DIR__ . '/../../Views';
+        $cache = __DIR__ . '/../../storage/cache';
+
+        $this->view = new BladeOne($views, $cache, BladeOne::MODE_AUTO);
     }
 }

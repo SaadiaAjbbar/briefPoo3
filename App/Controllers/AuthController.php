@@ -11,12 +11,13 @@ class AuthController extends Controller
 
     public function __construct()
     {
-        $this->authService = new AuthService();
+        parent::__construct();              // 🔥 مهم
+        $this->authService = new AuthService(); // 🔥 مهم
     }
 
     public function showLogin(): void
     {
-        $this->view('auth/login');
+        echo $this->view->run('auth.login');
     }
 
     public function login(): void
@@ -31,29 +32,19 @@ class AuthController extends Controller
             return;
         }
 
-        session_start();
         $_SESSION['user'] = [
             'id'    => $user->id,
             'role'  => $user->role,
-            'name'  => $user->first_name
+            'name'  => $user->prenom
         ];
 
-        switch ($user->role) {
-            case 'ADMIN':
-                header('Location: /admin/home');
-                break;
-
-            case 'FORMATEUR':
-                header('Location: /teacher/dashboard');
-                break;
-
-            case 'ETUDIANT':
-                header('Location: /etudiant/dashboard');
-                break;
+        if ($user->role === 'ADMIN') {
+            header('Location: /admin/home');
         }
 
         exit;
     }
+
 
     public function logout(): void
     {
