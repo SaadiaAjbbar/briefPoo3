@@ -3,6 +3,14 @@
 BEGIN;
 
 
+CREATE TABLE IF NOT EXISTS public.affectation
+(
+    id integer NOT NULL,
+    classe_id integer,
+    formateur_id integer,
+    CONSTRAINT affectation_pkey PRIMARY KEY (id)
+);
+
 CREATE TABLE IF NOT EXISTS public.brief
 (
     id serial NOT NULL,
@@ -78,6 +86,20 @@ CREATE TABLE IF NOT EXISTS public."user"
     CONSTRAINT user_pkey PRIMARY KEY (id),
     CONSTRAINT user_email_key UNIQUE (email)
 );
+
+ALTER TABLE IF EXISTS public.affectation
+    ADD CONSTRAINT fk_affectation_classe FOREIGN KEY (classe_id)
+    REFERENCES public.classe (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+
+
+ALTER TABLE IF EXISTS public.affectation
+    ADD CONSTRAINT fk_affectation_formateur FOREIGN KEY (formateur_id)
+    REFERENCES public."user" (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+
 
 ALTER TABLE IF EXISTS public.brief
     ADD CONSTRAINT fk_brief_sprint FOREIGN KEY (sprint_id)

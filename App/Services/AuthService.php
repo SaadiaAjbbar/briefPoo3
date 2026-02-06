@@ -6,23 +6,22 @@ use App\Repository\UserRepository;
 
 class AuthService
 {
-    private UserRepository $userRepository;
+    private UserRepository $userRepo;
 
     public function __construct()
     {
-        $this->userRepository = new UserRepository();
-        
+        $this->userRepo = new UserRepository();
     }
 
     public function login(string $email, string $password)
     {
-        $user = $this->userRepository->findByEmail($email);
+        $user = $this->userRepo->findByEmail($email);
 
         if (!$user) {
             return null;
         }
 
-        if (!password_verify($password, $user->password)) {
+        if (!password_verify($password, $user->getPassword())) {
             return null;
         }
 

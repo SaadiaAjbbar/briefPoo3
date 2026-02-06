@@ -15,4 +15,9 @@ abstract class Controller
 
         $this->view = new BladeOne($views, $cache, BladeOne::MODE_AUTO);
     }
+
+    protected function render(string $view, array $data = []): void
+    {
+        echo $this->view->run($view, $data);
+    }
 }

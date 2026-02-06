@@ -33,14 +33,16 @@ class AuthController extends Controller
         }
 
         $_SESSION['user'] = [
-            'id'    => $user->id,
-            'role'  => $user->role,
-            'name'  => $user->prenom
+            'id'   => $user->getId(),
+            'role' => $user->getRole(),
+            'name' => $user->getPrenom()
         ];
 
-        if ($user->role === 'ADMIN') {
+        if ($user->getRole() === 'ADMIN') {
             header('Location: /admin/home');
+            exit;
         }
+
 
         exit;
     }

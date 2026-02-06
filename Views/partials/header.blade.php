@@ -15,7 +15,7 @@
             <div class="flex justify-between h-16 items-center">
 
                 <div class="flex items-center">
-                    <span class="text-2xl font-bold text-indigo-600">BlogSystem</span>
+                    <span class="text-2xl font-bold text-indigo-600">DEBSystem</span>
                 </div>
 
                 <div class="flex items-center space-x-4">

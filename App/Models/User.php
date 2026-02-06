@@ -4,36 +4,58 @@ namespace App\Models;
 
 class User
 {
-    public int $id;
-    public string $prenom;
-    public string $nom;
-    public string $email;
-    public string $password;
-    public string $role;
+    private ?int $id;
+    private string $nom;
+    private string $prenom;
+    private string $email;
+    private string $password;
+    private string $role;
+    private ?int $classeId;
 
     public function __construct(
-        int $id = 0,
-        string $prenom = '',
-        string $nom = '',
-        string $email = '',
-        string $password = '',
-        string $role = 'ETUDIANT'
+        ?int $id,
+        string $nom,
+        string $prenom,
+        string $email,
+        string $password,
+        string $role,
+        ?int $classeId = null
     ) {
-        $this->id         = $id;
+        $this->id = $id;
+        $this->nom = $nom;
         $this->prenom = $prenom;
-        $this->nom  = $nom;
-        $this->email      = $email;
-        $this->password   = $password;
-        $this->role       = $role;
+        $this->email = $email;
+        $this->password = $password;
+        $this->role = $role;
+        $this->classeId = $classeId;
     }
 
-    public function isAdmin(): bool
+    public function getId(): ?int
     {
-        return $this->role === 'ADMIN';
+        return $this->id;
     }
-
-    public function isEtudiant(): bool
+    public function getNom(): string
     {
-        return $this->role === 'ETUDIANT';
+        return $this->nom;
+    }
+    public function getPrenom(): string
+    {
+        return $this->prenom;
+    }
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+    public function getRole(): string
+    {
+        return $this->role;
+    }
+    public function getClasseId(): ?int
+    {
+        return $this->classeId;
     }
 }
